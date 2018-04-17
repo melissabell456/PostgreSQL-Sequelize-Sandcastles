@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // lifeguard routes
 app.get('/lifeguards', (req, res, next) => {
-  Lifeguard.findAll()
+  Lifeguard.findAll({include: [{ model: Beach, attributes: ["name"] }]})
   .then( lifeguards => {
     res.status(200).json(lifeguards);
   })
@@ -29,7 +29,7 @@ app.post('/lifeguards', ({ body: { firstName, lastName, location }}, res, next) 
 
 // beach routes
 app.get('/beaches', (req, res, next) => {
-  Beach.findAll()
+  Beach.findAll({include: [{ model: Lifeguard, attributes: ["firstName"] }]})
   .then( beaches => {
     res.status(200).json(beaches);
   })
