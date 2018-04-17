@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   Lifeguard.associate = function(models) {
     // a Beach can have many Lifeguards and a Lifeguard can work on many Beaches
     Lifeguard.belongsToMany(models.Beach, {
-      as: "BeachGuards",
+      as: "BeachGuard",
       through: "lifeguards_beaches"
     })
 

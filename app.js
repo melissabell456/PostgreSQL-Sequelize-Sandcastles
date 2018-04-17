@@ -37,12 +37,26 @@ app.get('/beaches', (req, res, next) => {
 })
 
 app.post('/beaches', ({ body: { name, location, sand_rating }}, res, next) => {
-  Lifeguard.create({ name, location, sand_rating })
+  Beach.create({ name, location, sand_rating })
   .then( newBeach => {
     res.status(200).json(newBeach);
   })
   .catch( err => { next(err) });
 })
+
+//lifeguards_beaches route to assign a lifeguard to a beach
+app.post("/assign-lifeguard", ({body: { LifeguardId, BeachId }}, res, next ) => {
+  Lifeguard.findById(LifeguardId)
+  .then( SelectedLifeguard => {
+    SelectedLifeguard.addBeachGuard(BeachId)
+    .then( (newRecord) => {
+      res.status(201).json(newRecord);
+    })
+    .catch( err => {
+      next(err);
+    })
+  })
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
