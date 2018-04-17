@@ -1,5 +1,5 @@
 {
-  "Lifeguards": [
+  "lifeguards": [
     {"firstName": "Emily",
     "lastName": "Lemmon",
     "location": "Destin, FL"
