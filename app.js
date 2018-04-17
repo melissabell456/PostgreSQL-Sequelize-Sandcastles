@@ -19,11 +19,27 @@ app.get('/lifeguards', (req, res, next) => {
   .catch( err => { next(err) });
 })
 
+app.post('/lifeguards', ({ body: { firstName, lastName, location }}, res, next) => {
+  Lifeguard.create({ firstName, lastName, location })
+  .then( newLifeguard => {
+    res.status(200).json(newLifeguard);
+  })
+  .catch( err => { next(err) });
+})
+
 // beach routes
 app.get('/beaches', (req, res, next) => {
   Beach.findAll()
   .then( beaches => {
     res.status(200).json(beaches);
+  })
+  .catch( err => { next(err) });
+})
+
+app.post('/beaches', ({ body: { name, location, sand_rating }}, res, next) => {
+  Lifeguard.create({ name, location, sand_rating })
+  .then( newBeach => {
+    res.status(200).json(newBeach);
   })
   .catch( err => { next(err) });
 })
