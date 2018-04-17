@@ -1,0 +1,24 @@
+{
+  "beaches": [
+    {
+    "name": "Papohaku Beach",
+    "location": "Molokai, HI, USA",
+    "sand_rating": 8
+    },
+    {
+    "name": "Destin",
+    "location": "Destin, FL, USA",
+    "sand_rating": 7
+    },
+    {
+    "name": "Panama City Beach",
+    "location": "Panama City, FL, USA",
+    "sand_rating": 2
+    },
+    {
+    "name": "Kirkland Beach",
+    "location": "Kirkland, WA, USA",
+    "sand_rating": 3
+    }
+  ]
+}
