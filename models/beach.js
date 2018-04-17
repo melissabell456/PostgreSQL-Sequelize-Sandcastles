@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     sand_rating: DataTypes.INTEGER
   }, { tableName: "beaches" });
   Beach.associate = function(models) {
-    // declaring many to many relationship with Beach
-    Beach.hasMany(models.Lifeguard, {
+    // a Beach can have many Lifeguards and a Lifeguard can work on many Beaches
+    Beach.belongsToMany(models.Lifeguard, {
       through: "lifeguards_beaches"
     })
   };
